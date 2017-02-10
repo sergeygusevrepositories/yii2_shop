@@ -9,6 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\ltAppAsset;
+use \yii\helpers\Url;
 
 AppAsset::register($this);
 ltAppAsset::register($this);
@@ -69,7 +70,7 @@ ltAppAsset::register($this);
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="<?=\yii\helpers\Url::home()?>">
+                        <a href="<?=Url::home()?>">
                             <?=Html::img("@web/images/home/logo.png", ["alt" => "E-SHOPPER"])?>
                     </div>
                     <div class="btn-group pull-right">
@@ -105,7 +106,7 @@ ltAppAsset::register($this);
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="#" onClick="return getCart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="<?=\yii\helpers\Url::to(['/admin'])?>"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="<?=Url::to(['/admin'])?>"><i class="fa fa-lock"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
@@ -127,14 +128,11 @@ ltAppAsset::register($this);
                     </div>
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="index.html" class="active">Home</a></li>
-                            <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                            <li><a href="<?=Url::to(['/admin'])?>" class="active">Home</a></li>
+                            <li class="dropdown"><a href="#">Категории<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">Products</a></li>
-                                    <li><a href="product-details.html">Product Details</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="<?=Url::to(['category/index'])?>">Список категорийй</a></li>
+                                    <li><a href="<?=Url::to(['category/create'])?>">Добавить категоию</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
